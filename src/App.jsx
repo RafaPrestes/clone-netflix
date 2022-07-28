@@ -9,6 +9,7 @@ import React, {useEffect, useState} from 'react'
 const App = () => {
   const [movieList, setMovieList] = useState([])
   const [featureData, setFeatureData] = useState(null)
+  const [blackHeader, setBlackHeader] = useState(false);
 
   useEffect(() => {
     const loadAll = async () => {
@@ -26,9 +27,25 @@ const App = () => {
     loadAll()
   }, [])
 
+  // adicionar e remover o preto do header
+  useEffect(() => {
+    const scrollListener = () => {
+      if(window.scrollY > 10){
+        setBlackHeader(true)
+      } else {
+        setBlackHeader(false)
+      }
+    }
+    window.addEventListener('scroll', scrollListener)
+    
+    return () => {
+      window.removeEventListener('scroll', scrollListener)
+    }
+  } , [])
+
   return (
     <div className='page'>
-      <HeaderNav />
+      <HeaderNav black={blackHeader}/>
       
       {featureData && <FeatureMovie item={featureData} />}
 
@@ -37,6 +54,12 @@ const App = () => {
           <MovieRow key={key} title= {item.title} items={item.items}/>    
       ))}
     </section>
+
+    <footer>
+      Feito com <span role="img" aria-label="coração">❤️</span> pelo Rafael Prestes <br />
+      Direitos de imagem para Netflix <br />
+      Dados pegos do site Themoviedb.org
+    </footer>
     </div>
   )
 }
