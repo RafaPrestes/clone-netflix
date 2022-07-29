@@ -55,6 +55,12 @@ const App = () => {
       ))}
     </section>
 
+    {movieList.length <= 0 && 
+      <div className="loading">
+        <img src="https://rchandru.com/images/portfolio/modals/m-loading.gif" alt="Carregando" />
+      </div>
+    } 
+
     <footer>
       Feito com <span role="img" aria-label="coração">❤️</span> pelo Rafael Prestes <br />
       Direitos de imagem para Netflix <br />
