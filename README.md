@@ -14,3 +14,8 @@ Project developed based on the instructions by @B7Web
 `yarn ` 
 #### Run<br>
 `yarn dev` <br><br>
+
+## Demonstration
+
+![netflix](https://user-images.githubusercontent.com/64441986/182143618-6eb554cc-16f4-48c4-b94c-e440234f4c18.PNG)
+
